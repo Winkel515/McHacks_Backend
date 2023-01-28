@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const { Review } = require('./db/schema/review');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
 
 const { DB_URL } = process.env;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_URL);
