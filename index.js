@@ -16,6 +16,13 @@ mongoose.connect(DB_URL);
 
 const port = 80;
 
+app.get('/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const reviews = await Review.find({ userId });
+
+  res.send(reviews);
+});
+
 app.get('/', async (req, res) => {
   const reviews = await Review.find({});
 
