@@ -9,7 +9,11 @@ require('dotenv').config();
 const { DB_URL } = process.env;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_URL);
