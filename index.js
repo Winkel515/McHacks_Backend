@@ -42,6 +42,12 @@ app.post('/', async (req, res) => {
       food = null,
     } = req.body;
 
+    if (rating > 5 || rating < 1) {
+      return res.status(400).json({
+        message: 'Get a life',
+      });
+    }
+
     let review = await Review.findOne({ userId, food });
 
     if (!review) {
