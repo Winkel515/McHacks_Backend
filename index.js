@@ -18,7 +18,7 @@ app.use(
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_URL);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT;
 
 app.get('/:userId', async (req, res) => {
   const { userId } = req.params;
