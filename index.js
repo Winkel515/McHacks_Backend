@@ -42,7 +42,26 @@ app.post('/', async (req, res) => {
       food = null,
     } = req.body;
 
-    if (rating > 5 || rating < 1) {
+    const validFood = {
+      Muffin: true,
+      Coffee: true,
+      Bars: true,
+      Wrap: true,
+      'Rice dish': true,
+      Apple: true,
+      'Juice Box': true,
+      Soda: true,
+      'Red Bull': true,
+      Bagel: true,
+      Samosas: true,
+      Banana: true,
+      Ramen: true,
+      Fruitsations: true,
+      Chips: true,
+      Sandwich: true,
+    };
+
+    if (rating > 5 || rating < 1 || !validFood[food]) {
       return res.status(400).json({
         message: 'Get a life',
       });
